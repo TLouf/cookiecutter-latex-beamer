@@ -1,12 +1,9 @@
 {
     "repo_name": "latex-template",
-    "first_name":"Selim",
-    "last_name":"Belhaouane",
-    "school":"McGill University",
-    "student_id":"260xxxxxx",
+    "first_name":"Thomas",
+    "last_name":"Louf",
+    "institute":"IFISC",
     "title": "Title",
-    "course_name": "Course Name",
-    "course_code": "Course Code",
-    "bibtex":"yes",
-    "nomenclature":"yes"
+    "class": "article",
+    "subtitle": "SubTitle"
 }

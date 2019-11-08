@@ -1,0 +1,72 @@
+{% raw %}
+\ProvidesPackage{style}
+
+\usepackage[a4paper,centering,hmargin=3cm,vmargin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+
+\usepackage{blindtext}
+\usepackage[title,titletoc,toc]{appendix}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\bookmarksetup{open,numbered}
+\usepackage[section]{placeins}
+\renewcommand{\arraystretch}{1.3}
+\usepackage{csquotes}
+\usepackage{xstring}
+\usepackage{enumitem}
+\usepackage{nameref}
+% Allows referencing to description items by their name, used here to reference
+% assumptions
+\makeatletter
+\let\orgdescriptionlabel\descriptionlabel
+\renewcommand*{\descriptionlabel}[1]{%
+	\let\orglabel\label
+	\let\label\@gobble
+	\phantomsection
+	\edef\@currentlabel{#1\unskip}%
+	%\edef\@currentlabelname{#1}%
+	\let\label\orglabel
+	\orgdescriptionlabel{#1}%
+}
+\makeatother
+
+%\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{figs/used/}}
+\DeclareGraphicsExtensions{.jpg, .png, .pdf, .svg}
+
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+\ExecuteBibliographyOptions{url=false}
+\newbibmacro{geturl}[1]{\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}
+% \parseurl{\thefield{url}}
+\DeclareFieldFormat{title}{\usebibmacro{geturl}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article]{title}{\usebibmacro{geturl}{\mkbibquote{#1}}}
+
+
+%\def\school#1{\gdef\@school{#1}}
+%\def\@school{\@latex@warning@no@line{No \noexpand\school given}}
+
+
+
+
+%%%%%%%%%%%%%%
+%- HEADING --%
+%%%%%%%%%%%%%%
+
+% \textsc{\LARGE \@school}\\[2cm] % Name of your university/college
+% \textsc{\Large \@course}\\[0.5cm] % Major heading such as course name
+% \textsc{\large \@coursenum}\\[0.5cm] % Minor heading such as course title
+
+
+\endinput
+{% endraw %}

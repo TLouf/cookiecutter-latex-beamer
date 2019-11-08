@@ -26,41 +26,21 @@ def process_bibtex(bibtex, tex_root):
     """
     if bibtex:
         return
-    bibtex_path = os.path.join(tex_root, 'dabib.bib')
+    bibtex_path = os.path.join(tex_root, 'biblio.bib')
     os.remove(bibtex_path)
 
-def process_nomencl(nomencl, tex_root):
-    """Act on ``nomencl`` option.
-
-    Parameters
-    ----------
-    nomencl : bool
-        If True, nothing is done.
-        Else, delete makeidx.bat
-    tex_root : str
-        Path to root of LaTeX project.
-    """
-    if nomencl:
-        return
-    # To account for the user cloning the template and deleting one of the two
-    # due to this platform.
-    makeidx_path = os.path.join(tex_root, 'makeidx.bat')
-    os.remove(makeidx_path)
 
 def delete_temp(tex_root):
     """Delete figs/README.txt"""
-    readme_path = os.path.join(tex_root, 'figs','README.txt')
+    readme_path = os.path.join(tex_root, 'figs/used/','README.txt')
     os.remove(readme_path)
 
 if __name__ == '__main__':
     # TODO: Include conditional for tex root.
-    tex_root = os.path.join(os.getcwd(),'tex')
-    with open('options.json','r') as f:
-        options = json.load(f)
-        process_bibtex(check_true(options['bibtex']), tex_root)
-        process_nomencl(check_true(options['nomenclature']), tex_root)
-        delete_temp(tex_root)
-
-
-
-
+    tex_root = os.getcwd()
+    # tex_root = os.path.join(os.getcwd(),'tex')
+    # with open('options.json','r') as f:
+    #     options = json.load(f)
+        # process_bibtex(check_true(options['bibtex']), tex_root)
+        # process_nomencl(check_true(options['nomenclature']), tex_root)
+    delete_temp(tex_root)
