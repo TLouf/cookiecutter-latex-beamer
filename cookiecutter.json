@@ -2,8 +2,7 @@
     "repo_name": "latex-template",
     "first_name":"Thomas",
     "last_name":"Louf",
-    "institute":"IFISC",
+    "beamer_theme": "IFISC",
     "title": "Title",
-    "class": "article",
-    "subtitle": "SubTitle"
+    "bibtex": "yes"
 }

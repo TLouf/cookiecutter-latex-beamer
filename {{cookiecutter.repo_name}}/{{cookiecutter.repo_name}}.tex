@@ -1,0 +1,58 @@
+\documentclass[aspectratio=43]{beamer}
+{% if cookiecutter.bibtex=="yes" %}
+% These two bibliography lines need to be in the main tex file so we can get aucompletion in TeXstudio when citing!
+\usepackage[style=apa, isbn=false, url=false, doi=false, eprint=false, backend=biber]{biblatex}
+\addbibresource{biblio.bib}
+{% endif %}
+
+\usepackage{style}
+
+% Title 
+\title[]{{ '{' }}{{ cookiecutter.title }}{{ '}' }}
+\author[]{{ '{' }}{{ cookiecutter.first_name }} {{ cookiecutter.last_name }}{{ '}' }}
+% Today or set date
+% \newdate{date}{28}{01}{2019}
+% \date{\displaydate{date}}
+\date[]{\today}
+
+
+\begin{document}
+
+% Make title
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+
+% Outline: with or without frame title
+% \begin{frame}[t]{Outline}
+\begin{frame}[t]{\mbox{}}
+  \tableofcontents
+\end{frame}
+
+
+\section{Introduction}
+\begin{frame}[t]{Introduction}
+
+\end{frame}
+
+
+\begin{frame}[c,plain]
+  Thanks
+\end{frame}
+
+
+\appendix
+\begin{frame}[t]{Backup slide}
+
+\end{frame}
+
+{% if cookiecutter.bibtex=="yes" %}
+% These two bibliography lines need to be in the main tex file so we can get aucompletion in TeXstudio when citing!
+\begin{frame}[allowframebreaks]{References}
+  \printbibliography[heading=none]
+\end{frame}
+{% endif %}
+
+
+\end{document}
