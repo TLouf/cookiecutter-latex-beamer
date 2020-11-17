@@ -27,6 +27,8 @@
 *.bcf
 *.fls
 *.fdb_latexmk
+*.nav
+*.snm
 
 #Sublime
 *.sublime*
